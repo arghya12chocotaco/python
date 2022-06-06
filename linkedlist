@@ -1,0 +1,50 @@
+class node:
+    def __init__(self,val):
+        self.data=val
+        self.link=None
+class LL:
+    def __init__(self):
+        self.head=None
+    def insertAtBegin(self,val):
+        NN=node(val)
+        if(self.head is None):
+            self.head=NN
+            return
+        NN.link=self.head
+        self.head=NN
+    def insertAtEnd(self,val):
+        NN=node(val)
+        if self.head is None:
+            NN=self.head
+            return
+        temp=self.head 
+        while temp.link is not None:
+            temp=temp.link
+        temp.link=NN
+    def deleteAtBegin(self):
+        if(self.head is None):
+            return
+        temp=self.head
+        self.head=self.head.link
+        temp.link=None
+    def deleteAtEnd(self):
+        if(self.head is None):
+            return
+        temp=self.head
+        while(temp.link.link is not None):
+            temp=temp.link
+        temp.link=None
+    def printLL(self,temp):
+        while(temp is not None):
+            print(temp.data)
+            temp=temp.link
+l1=LL()
+l1.insertAtBegin(10)
+l1.insertAtBegin(20)
+l1.insertAtBegin(30)
+l1.insertAtBegin(40)
+l1.insertAtEnd(60)
+l1.insertAtEnd(70)
+l1.deleteAtBegin()
+l1.deleteAtEnd()
+l1.printLL(l1.head)
